@@ -118,10 +118,10 @@ get_random_fd (void)
   static gsize init = 0;
 
   if (g_once_init_enter (&init)) {
-    int fd = open ("/dev/random", O_RDONLY);
+    int fd = open ("/dev/urandom", O_RDONLY);
 
     if (fd < 0) {
-      g_warning ("Could not open /dev/random, exiting");
+      g_warning ("Could not open /dev/urandom, exiting");
       exit (1);
     }
 
